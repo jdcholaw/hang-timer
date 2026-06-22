@@ -1,7 +1,7 @@
 {
-  "name": "매달리기 타이머",
+  "name": "Hang Timer · 매달리기 타이머",
   "short_name": "Hang Timer",
-  "description": "한국어 음성 안내 철봉 매달리기 타이머. 전부 로컬에서 동작합니다.",
+  "description": "한국어·영어 음성 안내 매달리기 타이머. 전부 로컬에서 동작 / Korean·English voice hang timer. Runs fully on-device.",
   "lang": "ko",
   "dir": "ltr",
   "start_url": "./",
