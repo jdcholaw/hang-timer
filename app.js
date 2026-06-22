@@ -84,8 +84,12 @@
   function pickVoice() {
     if (!supportsSpeech) return;
     const want = (lang === 'en') ? 'en' : 'ko';
-    const voices = window.speechSynthesis.getVoices();
-    voice = voices.find((v) => v.lang && v.lang.toLowerCase().startsWith(want)) || null;
+    const list = window.speechSynthesis.getVoices()
+      .filter((v) => v.lang && v.lang.toLowerCase().startsWith(want));
+    // 자연스러운 음성 우선: 구글/네트워크 음성(보통 또렷한 여성) > 첫 번째 일치 음성.
+    voice = list.find((v) => /google/i.test(v.name))
+         || list.find((v) => v.localService === false)
+         || list[0] || null;
   }
   if (supportsSpeech) {
     pickVoice();
@@ -171,6 +175,7 @@
     }
     if (supportsSpeech) {
       try {
+        if (!voice) pickVoice();   // getVoices()가 늦게 채워지는 새 주소 첫 로드 대비
         const u = new SpeechSynthesisUtterance(text);
         u.lang = I18N[lang].voiceLang;
         if (voice) u.voice = voice;

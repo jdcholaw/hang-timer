@@ -1,7 +1,7 @@
 'use strict';
 
 // 매달리기 타이머 PWA service worker — 앱 셸 캐시(오프라인 동작)
-const CACHE_VERSION = 'hang-timer-v3';
+const CACHE_VERSION = 'hang-timer-v4';
 // 2026-06-21 fix: './index.html' 제거. tailscale serve가 /index.html → / 로 301
 // 정규화해서 cache.addAll 이 실패 → install 실패 → PWA가 설치돼도 실행 안 되던 원인.
 // './' 가 곧 index.html 이므로 기능 손실 없음.
