@@ -1,0 +1,124 @@
+:root {
+  --bg: #0b0f14;
+  --panel: #11171f;
+  --fg: #f5f7fa;
+  --muted: #9aa7b4;
+  --primary: #1f9d55;
+  --primary-press: #167a41;
+  --secondary: #b8860b;
+  --ghost: #2a3340;
+  --test: #1f6feb;
+  --accent: #ffd166;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+}
+
+.app {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.2rem;
+  padding: max(1rem, env(safe-area-inset-top)) 1rem max(1.5rem, env(safe-area-inset-bottom)) 1rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0.6rem 0 0;
+  color: var(--muted);
+}
+
+.timer {
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  font-size: clamp(4rem, 24vw, 9rem);
+  line-height: 1;
+  color: var(--accent);
+  margin: 0.4rem 0;
+  text-shadow: 0 0 24px rgba(255, 209, 102, 0.25);
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 480px;
+}
+
+.controls .btn-primary { grid-column: 1 / -1; }
+
+.btn {
+  border: 0;
+  border-radius: 16px;
+  color: var(--fg);
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 1.2rem 1rem;
+  min-height: 72px;
+  cursor: pointer;
+  transition: transform 0.05s ease, background 0.15s ease;
+  touch-action: manipulation;
+}
+
+.btn:active { transform: scale(0.98); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-primary { background: var(--primary); }
+.btn-primary:active { background: var(--primary-press); }
+.btn-secondary { background: var(--secondary); }
+.btn-ghost { background: var(--ghost); }
+.btn-test { background: var(--test); width: 100%; max-width: 480px; }
+
+.row {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.field { font-size: 1.2rem; color: var(--muted); }
+
+.select {
+  flex: 1;
+  background: var(--panel);
+  color: var(--fg);
+  border: 1px solid #2a3340;
+  border-radius: 12px;
+  font-size: 1.3rem;
+  padding: 0.9rem 0.8rem;
+  min-height: 56px;
+}
+
+.status {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin: 0.2rem 0 0;
+  min-height: 1.2em;
+}
+
+.notice {
+  color: #ff8a8a;
+  font-size: 0.95rem;
+  margin: 0;
+  min-height: 1em;
+  max-width: 480px;
+}
+
+@media (min-width: 600px) {
+  .timer { font-size: 9rem; }
+}

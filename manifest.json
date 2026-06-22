@@ -1,0 +1,21 @@
+{
+  "name": "매달리기 타이머",
+  "short_name": "Hang Timer",
+  "description": "한국어 음성 안내 철봉 매달리기 타이머. 전부 로컬에서 동작합니다.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b0f14",
+  "theme_color": "#0b0f14",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

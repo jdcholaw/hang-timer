@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0f14" />
+  <meta name="description" content="한국어 음성 안내 철봉 매달리기 타이머 (PWA, 전부 로컬 동작)" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>매달리기 타이머</title>
+</head>
+<body>
+  <main class="app">
+    <h1 class="title">매달리기 타이머</h1>
+
+    <div class="timer" id="timer" role="timer" aria-live="off">00:00</div>
+
+    <div class="controls">
+      <button id="startBtn" class="btn btn-primary" type="button">시작</button>
+      <button id="pauseBtn" class="btn btn-secondary" type="button" disabled>일시정지</button>
+      <button id="resetBtn" class="btn btn-ghost" type="button" disabled>초기화</button>
+    </div>
+
+    <div class="row">
+      <label class="field" for="intervalSelect">안내 간격</label>
+      <select id="intervalSelect" class="select">
+        <option value="5">5초</option>
+        <option value="10" selected>10초</option>
+        <option value="15">15초</option>
+        <option value="30">30초</option>
+        <option value="60">1분</option>
+        <option value="300">5분</option>
+        <option value="600">10분</option>
+        <option value="1800">30분</option>
+        <option value="3600">1시간</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <label class="check"><input type="checkbox" id="countdownToggle" /> 시작 카운트다운 (시작하겠습니다 · 5·4·3·2·1)</label>
+    </div>
+
+    <div class="row">
+      <label class="check"><input type="checkbox" id="elapsedToggle" checked /> 안내에 '경과' 붙이기 (끄면 "10초"처럼 숫자만)</label>
+    </div>
+
+    <div class="row">
+      <button id="testVoiceBtn" class="btn btn-test" type="button">음성 테스트</button>
+    </div>
+
+    <p class="status" id="status" aria-live="polite">대기 중. 시작을 누르세요.</p>
+    <p class="notice" id="notice"></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
